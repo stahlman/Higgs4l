@@ -1,0 +1,17 @@
+README
+
+#For the GRL package:
+cd externals/GoodRunsLists/cmt
+make -f Makefile.Standalone
+cd -
+
+#For the GRL
+cd externals/HiggsZZ4lUtils/cmt
+make -f Makefile.Standalone
+cd -
+
+#Then do
+source setupEx.sh 
+
+
+

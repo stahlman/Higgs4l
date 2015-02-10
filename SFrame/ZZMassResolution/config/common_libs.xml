@@ -1,0 +1,29 @@
+  <!-- List of libraries to be loaded for the analysis.             -->
+  <Library Name="libGenVector" />
+  <Library Name="libGraf" />
+  <Library Name="libCintex" />
+  <Library Name="libSFrameCintex" />
+  <Library Name="libSFramePlugIns" />    
+  <Library Name="libGoodRunsLists" />
+  <Library Name="libPileupReweighting" />  
+  <Library Name="libD3PDObjects" />
+  <Library Name="libAtlasSFrameUtils" />
+  <Library Name="libCommonTools" />
+  <Library Name="libZZSelection" />
+  <Library Name="libZZMassResolution" />
+  <Library Name="libegammaAnalysisUtils"/> 
+  <Library Name="libMuonMomentumCorrections"/>
+
+  
+  <!-- Packages that have to be uploaded and enabled on the PROOF cluster. -->
+  <!-- The standard SFrame libraries all create such a PAR package under   -->
+  <!-- SFRAME_LIB_DIR. For each custom library that is loaded in the       -->
+  <!-- configuration, a package also has to be defined...                  -->
+  <Package Name="SFrameCore.par" />
+  <Package Name="SFrameCintex.par" />
+  <Package Name="SFramePlugIns.par" />
+  <Package Name="D3PDObjects.par" />
+  <Package Name="AtlasSFrameUtils.par" />
+  <Package Name="CommonTools.par" />
+  <Package Name="RootCore.par" />
+  <Package Name="ZZMassResolution.par" />

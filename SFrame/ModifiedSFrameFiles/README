@@ -1,0 +1,8 @@
+ There is an unfortunate naming collision between SFrame and RooFit which causes errors in compilation.  The SFrame author knows of this error, but a fix has not been implemented yet to my knowledge.  I've had to modify a few of the SFrame files in order to make it compile properly. The corrected files are in this directory and should be copied to the following places:
+
+Higgs4lDev/SFrame/SFrame/core/include/SLogger.h
+Higgs4lDev/SFrame/SFrame/core/include/SCycleBaseHist.icc
+Higgs4lDev/SFrame/SFrame/core/include/SCycleBaseNTuple.icc
+Higgs4lDev/SFrame/SFrame/plug-ins/include/SSummedVar.icc
+
+

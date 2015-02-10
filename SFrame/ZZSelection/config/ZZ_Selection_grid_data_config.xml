@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE JobConfiguration PUBLIC "" "JobConfig.dtd"[
+    <!ENTITY grid SYSTEM "input_grid.xml">
+    <!ENTITY tools SYSTEM "common_tools.xml">
+    <!ENTITY libs SYSTEM "common_libs.xml">
+]>
+
+<JobConfiguration JobName="ZZ_SelectionJob" OutputLevel="INFO">
+	
+  &libs;
+	
+  <!-- List of cycles to be executed.                                       -->
+  <Cycle Name="ZZ_Selection" OutputDirectory="./" PostFix="" TargetLumi="1.0" >
+    
+    <InputData Lumi="0.0" NEventsMax="-1" Type="Data" Version="Reco">
+      
+      &grid;
+                  
+      <InputTree Name="physics" />
+      <OutputTree Name="output" />
+    </InputData>
+    
+    <UserConfig>
+      <Item Name="RecoTreeString" Value="physics"/>
+      <Item Name="TrigTreeString" Value=""/>
+
+      <Item Name="DoGRL" Value="False"/>
+      <Item Name="DoTrigger" Value="True"/>
+      <Item Name="DoVertex" Value="True"/>
+      <Item Name="DoLarError" Value="True"/>
+
+      <!-- <Item Name="ProdType" Value="incl"/> -->
+
+      <Item Name="DoPileupSF" Value="True"/>
+      
+      <!-- Tool Configuration -->
+      <Item Name="QuadSelector_DoFourMuon" Value="True" />
+      <Item Name="QuadSelector_DoFourElectron" Value="True" />
+      <Item Name="QuadSelector_DoTwoMuonTwoElectron" Value="True" />
+      <Item Name="QuadSelector_DoTwoElectronTwoMuon" Value="True" />
+
+      <Item Name="TriggerSelector_RecoTreeString" Value="physics"/>
+      
+      <Item Name="MuonSelector_DoSmear" Value="True"/>
+      <Item Name="ElectronSelector_DoSmear" Value="True"/>
+      <Item Name="ElectronSelector_DoCalibration" Value="True"/>
+     
+      <Item Name="ElectronSelector_DoLikelihood" Value="False"/>
+      <Item Name="ElectronSelector_LikelihoodOP" Value="Multilepton_FixedSignalEfficiency"/> 
+      <!-- <Item Name="ElectronSelector_LikelihoodOP" Value="Multilepton_FixedBkgRejection"/> -->
+      <Item Name="ElectronSelector_PTCutLikelihood" Value="False"/>
+      <Item Name="ElectronSelector_VetoCrack" Value="False"/>
+      <Item Name="ElectronSelector_DoTruthMatchEleZ" Value="False"/>
+
+
+
+     
+
+    </UserConfig>
+    
+  </Cycle>
+
+</JobConfiguration>

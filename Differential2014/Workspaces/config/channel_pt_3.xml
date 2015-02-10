@@ -1,0 +1,24 @@
+<!DOCTYPE Channel  SYSTEM 'HistFactorySchema.dtd'>
+
+<Channel Name="channel_pt_3" InputFile="./data/WorkspaceInputs.root" > 
+  
+  <Sample Name="signal_pt_3" HistoName="h_signal_nominal_pt_3" NormalizeByTheory="True" > 
+    <NormFactor Name="mu_pt_3" Val="1" Low="0." High="10." />  
+    <!-- <OverallSys Name="syst1" Low="0.95" High="1.05"/> -->
+  </Sample>
+  
+  <Sample Name="ggZZ_pt_3" HistoName="h_ggZZ_nominal_pt_3" NormalizeByTheory="True" > 
+    <OverallSys Name="ggZZ_Normalization" Low="0.70" High="1.30"/>
+  </Sample>
+  
+  <Sample Name="qqZZ_pt_3" HistoName="h_qqZZ_nominal_pt_3" NormalizeByTheory="True" > 
+    <OverallSys Name="qqZZ_Normalization" Low="0.96" High="1.04"/>
+  </Sample> 
+
+  <Sample Name="Reducible_ee_3" HistoName="h_Reducible_ee_nominal_pt_3" NormalizeByTheory="False" > 
+  </Sample> 
+
+  <Sample Name="Reducible_mm_3" HistoName="h_Reducible_mm_nominal_pt_3" NormalizeByTheory="False" > 
+  </Sample> 
+
+</Channel>

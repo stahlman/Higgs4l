@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE JobConfiguration PUBLIC "" "JobConfig.dtd"[
+    <!ENTITY libs_config SYSTEM "/home/stahlman/testarea/Higgs4lDev.trunk/SFrame/ZZTruthStudies/config/common_libs.xml"> 
+    <!ENTITY data SYSTEM "input_batch.xml"> 
+]>
+
+<!--OutputLevel: Possibilities: VERBOSE, DEBUG, INFO, WARNING, ERROR, FATAL, ALWAYS -->
+<JobConfiguration JobName="FiducialCutflowJob" OutputLevel="INFO">
+	
+  &libs_config;
+
+  <Cycle Name="FiducialCutflow" TargetLumi="1." RunMode="LOCAL" ProofServer="lite"
+         ProofWorkDir="" OutputDirectory="./" ProofNodes="2" PostFix="" >
+
+    <InputData Type="MC" Version="batch" Lumi="0." NEventsMax="-1" NEventsSkip="0" Cacheable="False" >
+      &data;
+      <InputTree Name="physics" />
+      <OutputTree Name="output" />
+    </InputData>
+    
+    <UserConfig>
+    
+      <!-- Cycle Configuration -->     
+      <Item Name="SFrame_dir" Value="/home/stahlman/testarea/Higgs4lDev.trunk/SFrame"/>
+
+      <Item Name="TreeString" Value="physics"/>
+
+      
+      <!-- Tool Configuration -->
+
+
+    </UserConfig>
+    
+  </Cycle>
+
+</JobConfiguration>

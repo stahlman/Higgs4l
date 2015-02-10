@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE JobConfiguration PUBLIC "" "JobConfig.dtd"[
+    <!ENTITY libs_config SYSTEM "/home/stahlman/testarea/Higgs4lDev.trunk/SFrame/ZZSelection/config/common_libs.xml"> 
+    <!ENTITY data SYSTEM "input_batch.xml"> 
+]>
+
+<!--OutputLevel: Possibilities: VERBOSE, DEBUG, INFO, WARNING, ERROR, FATAL, ALWAYS -->
+<JobConfiguration JobName="ZZCutFlowJob" OutputLevel="INFO">
+
+  &libs_config;
+
+  <Cycle Name="ZZCutFlow" TargetLumi="1." RunMode="LOCAL" ProofServer="lite"
+         ProofWorkDir="" OutputDirectory="./" ProofNodes="2" PostFix="" >
+
+    <InputData Type="MC" Version="batch" Lumi="0." NEventsMax="-1" NEventsSkip="0" Cacheable="False" >
+      &data;
+
+      <InputTree Name="physics" />
+      <OutputTree Name="output" />
+    </InputData>
+
+    <UserConfig>
+      <Item Name="SFrame_dir" Value="/home/stahlman/testarea/Higgs4lDev.trunk/SFrame/"/>
+
+      <!-- Tool Configuration -->
+
+      <Item Name="ElectronSelector_DoLikelihood" Value="True" />
+      <Item Name="ElectronSelector_LH_OP" Value="LooseRelaxed" />
+      
+      <Item Name="QuadSelector_DoFirstPairPassID" Value="True" />
+      <Item Name="QuadSelector_DoFirstPairPassLikelihood" Value="True" />
+
+      <Item Name="QuadSelector_DoTrkIsoCut" Value="False" />
+      <Item Name="QuadSelector_DoCaloIsoCut" Value="False" />
+      <Item Name="QuadSelector_DoD0SigCut" Value="False" />
+
+    </UserConfig>
+
+  </Cycle>
+
+</JobConfiguration>

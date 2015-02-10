@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE JobConfiguration PUBLIC "" "JobConfig.dtd"[
+    <!ENTITY libs_config SYSTEM "/home/stahlman/testarea/Higgs4lDev.trunk/SFrame/ZXSelection/config/common_libs.xml"> 
+    <!ENTITY data SYSTEM "input_batch.xml"> 
+]>
+
+<!--OutputLevel: Possibilities: VERBOSE, DEBUG, INFO, WARNING, ERROR, FATAL, ALWAYS -->
+<JobConfiguration JobName="ZXCutflowJob" OutputLevel="INFO">
+	
+  &libs_config;
+  	
+  <!-- List of cycles to be executed.                                       -->
+  <Cycle Name="ZXCutflow" TargetLumi="1." RunMode="LOCAL" ProofServer="lite"
+         ProofWorkDir="" OutputDirectory="./" ProofNodes="2" PostFix="" >
+    
+    <InputData Type="data" Version="batch" Lumi="0." NEventsMax="-1" NEventsSkip="0" Cacheable="False" >
+      &data;
+       
+      <InputTree Name="physics" />
+      <OutputTree Name="output" />
+    </InputData>
+    
+    <UserConfig>
+    
+      <!-- Cycle Configuration -->     
+      <Item Name="SFrame_dir" Value="/home/stahlman/testarea/Higgs4lDev.trunk/SFrame/"/>
+      <Item Name="RecoTreeString" Value="physics"/>
+      
+      <!-- Tool Configuration -->
+      <Item Name="MuonSelector_DoTrackIsolation" Value="True"/>
+      <Item Name="MuonSelector_DoCaloIsolation" Value="True"/>
+      <Item Name="MuonSelector_DoD0" Value="True"/>
+
+      <Item Name="ElectronSelector_DoML" Value="True"/>
+      <Item Name="ElectronSelector_DoML_HCP" Value="False"/>
+      <Item Name="ElectronSelector_DoLikelihood" Value="False"/>
+      <Item Name="ElectronSelector_DoBlayer" Value="False"/>
+      <Item Name="ElectronSelector_PTCutZ" Value="True"/>
+
+      <Item Name="ElectronSelector_DoTrackIsolation" Value="True"/>
+      <Item Name="ElectronSelector_DoCaloIsolation" Value="True"/>
+      <Item Name="ElectronSelector_DoD0" Value="True"/>
+
+      <Item Name="XSelector_DoElectronID" Value="False"/>
+      <Item Name="XSelector_DoBlayer" Value="False"/>
+
+      <Item Name="XSelector_DoTrackIsolation" Value="False"/>
+      <Item Name="XSelector_DoCaloIsolation" Value="False"/>
+      <Item Name="XSelector_DoD0" Value="False"/>
+
+      <!--&tools;-->
+
+    </UserConfig>
+    
+  </Cycle>
+
+</JobConfiguration>

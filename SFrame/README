@@ -1,0 +1,80 @@
+## taken largely from Dominick's and Ryan's READMEs:
+##  https://svnweb.cern.ch/trac/penn/browser/reece/code/SFrame/README
+##  Jonathan Stahlman <stahlman@cern.ch>
+
+------------
+Installation
+------------
+
+The first step is to check out the directory containing this file:
+>> svn co svn+ssh://svn.cern.ch/reps/penn/stahlman/Higgs4lDev/trunk Higgs4lDev 
+
+This contains all of the packages that I've developed for SFrame.  These depend on the SFrame code itself as well as other ATLAS common utility
+packages, so these packages must be checked out before compiling.
+
+SFrame has a Wiki page here: http://sourceforge.net/apps/mediawiki/sframe/index.php?title=Main_Page
+
+There is also a Penn Wiki page for this code:
+https://twiki.cern.ch/twiki/bin/viewauth/AtlasProtected/SetupHZZ
+
+You can keep track of the latest tag (it is very stable now) here:
+http://sframe.svn.sourceforge.net/viewvc/sframe/SFrame/
+
+You should check out the latest tag of the code, into the already existing SFrame directory, as well as the additional packages required:
+
+cd Higgs4lDev/SFrame
+source checkout_externals.sh
+
+This checks out the SFrame code and also the ATLAS packages in the RootCore directory.  The Rootcore packages are listed in RootCore/my_packages
+
+Before building, you also need to setup Root and Python. The versions used when I built it were SFRAME_VERSION=03-06-22, ROOTCORE_VERSION=00-02-99, ROOT_VERSION=5.34.05 and PYTHON_VERSION=2.6.2.  For AFS mounted machines, I have a script to do this in my public area:
+
+source /afs/cern.ch/user/s/stahlman/public/setupRoot.sh
+
+There is an unfortunate naming collision between SFrame and RooFit which causes some errors.  The SFrame author knows of this error, but a fix has not been implemented yet to my knowledge.  I've had to modify a few of the SFrame files in order to make it compile properly. Those modified files and the locations to which they should be copied are in Higgs4lDev/SFrame/ModifiedSFrameFiles. Look at the README for instructions.
+
+
+You need to source the SFrame setup script (from the correct directory!), then the Makefile from my SFrame directory should just build everything:
+
+cd SFrame
+source setup.sh
+cd ../RootCore
+source rootcore_build.sh
+cd ..
+make
+
+Now that you've made SFrame, the only thing you need to do every time you want
+to use it is setup Root and source SFrame/setup.sh. Or, you can use the setup script in the top level directory Higgs4lDev/setup.sh which needs to 
+be modified for your local install
+
+------------
+Organization
+------------
+
+
+-------
+Running
+-------
+
+To run a job, the commands take the following form:
+
+sframe_main <config_file.xml>
+
+To run the cutflow on some example ntuples saved on pc-penn-d-01, do:
+
+sframe_main ZZSelection/config/ZZCutflow_test_mc_config.xml
+
+-------------------
+Running on the Grid
+-------------------
+
+
+--------------
+Current Issues
+--------------
+
+
+--------------
+Adding a new package/cycle
+--------------
+http://sourceforge.net/apps/mediawiki/sframe/index.php?title=UserCodeCreation

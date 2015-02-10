@@ -1,0 +1,32 @@
+<!DOCTYPE Combination  SYSTEM 'HistFactorySchema.dtd'>
+
+<Combination OutputFilePrefix="./results/result_pt" >
+
+  <!-- <Function Name="mu_pt_0" Expression="cf_pt_0" Dependents="cf_pt_0[0,10]," /> -->
+
+
+  <Input>./config/channel_pt_0.xml</Input>
+  <Input>./config/channel_pt_1.xml</Input>
+  <Input>./config/channel_pt_2.xml</Input>
+  <Input>./config/channel_pt_3.xml</Input>
+
+  <Measurement Name="measurement_0" Lumi="1" LumiRelErr="0.028"  ExportOnly="True">   
+    <POI>mu_pt_0</POI>
+  </Measurement>
+
+<!--
+  <Measurement Name="example_pt_1" Lumi="1" LumiRelErr="0.025" >   
+    <POI>mu_pt_1</POI>
+  </Measurement>
+
+  <Measurement Name="example_pt_2" Lumi="1" LumiRelErr="0.025" >   
+    <POI>mu_pt_2</POI>
+  </Measurement>
+
+  <Measurement Name="example_pt_3" Lumi="1" LumiRelErr="0.025" >   
+    <POI>mu_pt_3</POI>
+  </Measurement>
+-->
+
+</Combination>
+

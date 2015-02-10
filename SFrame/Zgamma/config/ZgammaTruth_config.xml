@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE JobConfiguration PUBLIC "" "JobConfig.dtd"[
+    <!--<!ENTITY tools SYSTEM "common_tools.xml">-->
+    <!ENTITY libs SYSTEM "common_libs.xml">
+]>
+
+<JobConfiguration JobName="ZgammaTruthJob" OutputLevel="INFO">
+        &libs;
+
+<Cycle Name="ZgammaTruth" OutputDirectory="./" PostFix="" TargetLumi="1.0">
+
+<InputData Lumi="0.0" NEventsMax="-1" Type="MC" Version="Reco">
+        <!-- <In FileName="/disk/userdata00/atlas_data2/sheim/Ntuples/mc/user.sheim.mc12_8TeV.147806.PowhegPythia8_AU2CT10_Zee.merge.NTUP_HSG2.e1169_s1469_s1470_r3542_r3549_p1044.4.121019185120/user.sheim.004760._00009.skim_2l.root" Lumi="1.0" /> -->
+       <!-- <In FileName="/disk/userdata00/atlas_data2/sheim/Ntuples/mc/user.sheim.mc12_8TeV.129250.PowhegPythia8_AU2CT10_Zee_2Lepton1Photon.merge.NTUP_EGAMMA.e1444_s1499_s1504_r3658_r3549_p118.4.121019185431/user.sheim.004762._00001.skim_2l.root" Lumi="1.0" /> -->
+       <!-- <In FileName="/disk/userdata00/atlas_data2/sheim/Ntuples/skim_TPG.root" Lumi="1.0" /> -->
+       <In FileName="/disk/userdata00/atlas_data2/sheim/Ntuples/skim_TPG_mc.root" Lumi="1.0" /> 
+
+
+      <InputTree Name="egamma"/> 
+      <!-- <InputTree Name="physics" /> -->
+        <OutputTree Name="output"/>
+</InputData>
+
+<UserConfig>
+       <!-- Cycle Configuration -->    
+       <Item Name="RecoTreeString" Value="egamma"/> 
+       <Item Name="TriggerSelector_RecoTreeString" Value="egamma"/> 
+       <!-- <Item Name="RecoTreeString" Value="physics"/> -->
+       <!-- <Item Name="TriggerSelector_RecoTreeString" Value="physics"/> -->
+
+      <Item Name="TagSelector_DoTruthMatchEleZ" Value="True"/>
+      <Item Name="ProbeSelector_DoTruthMatchEleZ" Value="True"/>
+      <Item Name="PhotonSelector_DoTruthMatchPhoton" Value="True"/>
+
+      
+</UserConfig>
+</Cycle>
+</JobConfiguration>
+
+
+

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE JobConfiguration PUBLIC "" "JobConfig.dtd"[
+    <!--<!ENTITY tools SYSTEM "common_tools.xml">-->
+    <!ENTITY libs SYSTEM "common_libs.xml">
+]>
+
+<JobConfiguration JobName="FiducialCutflowJob" OutputLevel="INFO">
+	
+  &libs;
+  	
+  <!-- List of cycles to be executed.                                       -->
+  <Cycle Name="FiducialCutflow" OutputDirectory="/local_data1/stahlman/output/HSG2_output/" PostFix="" TargetLumi="1.0" >
+    
+    <InputData Lumi="0.0" NEventsMax="-1" Type="MC" Version="test">
+
+      <In FileName="/local_data1/stahlman/data/HSG2Ntuples/mc/mc12_8TeV.160155.PowhegPythia8_AU2CT10_ggH125_ZZ4lep.merge.NTUP_HSG2.e1191_s1469_s1470_r3542_r3549_p1044_tid00814270_00/NTUP_HSG2.00814270._000001.root.1" Lumi="1.0" />
+      <In FileName="/local_data1/stahlman/data/HSG2Ntuples/mc/mc12_8TeV.160155.PowhegPythia8_AU2CT10_ggH125_ZZ4lep.merge.NTUP_HSG2.e1191_s1469_s1470_r3542_r3549_p1044_tid00814270_00/NTUP_HSG2.00814270._000002.root.1" Lumi="1.0" />
+      <In FileName="/local_data1/stahlman/data/HSG2Ntuples/mc/mc12_8TeV.160155.PowhegPythia8_AU2CT10_ggH125_ZZ4lep.merge.NTUP_HSG2.e1191_s1469_s1470_r3542_r3549_p1044_tid00814270_00/NTUP_HSG2.00814270._000003.root.1" Lumi="1.0" />
+      <In FileName="/local_data1/stahlman/data/HSG2Ntuples/mc/mc12_8TeV.160155.PowhegPythia8_AU2CT10_ggH125_ZZ4lep.merge.NTUP_HSG2.e1191_s1469_s1470_r3542_r3549_p1044_tid00814270_00/NTUP_HSG2.00814270._000004.root.1" Lumi="1.0" />
+      <In FileName="/local_data1/stahlman/data/HSG2Ntuples/mc/mc12_8TeV.160155.PowhegPythia8_AU2CT10_ggH125_ZZ4lep.merge.NTUP_HSG2.e1191_s1469_s1470_r3542_r3549_p1044_tid00814270_00/NTUP_HSG2.00814270._000005.root.1" Lumi="1.0" />
+      <In FileName="/local_data1/stahlman/data/HSG2Ntuples/mc/mc12_8TeV.160155.PowhegPythia8_AU2CT10_ggH125_ZZ4lep.merge.NTUP_HSG2.e1191_s1469_s1470_r3542_r3549_p1044_tid00814270_00/NTUP_HSG2.00814270._000006.root.1" Lumi="1.0" />
+      <In FileName="/local_data1/stahlman/data/HSG2Ntuples/mc/mc12_8TeV.160155.PowhegPythia8_AU2CT10_ggH125_ZZ4lep.merge.NTUP_HSG2.e1191_s1469_s1470_r3542_r3549_p1044_tid00814270_00/NTUP_HSG2.00814270._000007.root.1" Lumi="1.0" />
+      <In FileName="/local_data1/stahlman/data/HSG2Ntuples/mc/mc12_8TeV.160155.PowhegPythia8_AU2CT10_ggH125_ZZ4lep.merge.NTUP_HSG2.e1191_s1469_s1470_r3542_r3549_p1044_tid00814270_00/NTUP_HSG2.00814270._000008.root.1" Lumi="1.0" />
+      <In FileName="/local_data1/stahlman/data/HSG2Ntuples/mc/mc12_8TeV.160155.PowhegPythia8_AU2CT10_ggH125_ZZ4lep.merge.NTUP_HSG2.e1191_s1469_s1470_r3542_r3549_p1044_tid00814270_00/NTUP_HSG2.00814270._000009.root.1" Lumi="1.0" />
+      <In FileName="/local_data1/stahlman/data/HSG2Ntuples/mc/mc12_8TeV.160155.PowhegPythia8_AU2CT10_ggH125_ZZ4lep.merge.NTUP_HSG2.e1191_s1469_s1470_r3542_r3549_p1044_tid00814270_00/NTUP_HSG2.00814270._000010.root.1" Lumi="1.0" />
+      <In FileName="/local_data1/stahlman/data/HSG2Ntuples/mc/mc12_8TeV.160155.PowhegPythia8_AU2CT10_ggH125_ZZ4lep.merge.NTUP_HSG2.e1191_s1469_s1470_r3542_r3549_p1044_tid00814270_00/NTUP_HSG2.00814270._000011.root.1" Lumi="1.0" />
+      <In FileName="/local_data1/stahlman/data/HSG2Ntuples/mc/mc12_8TeV.160155.PowhegPythia8_AU2CT10_ggH125_ZZ4lep.merge.NTUP_HSG2.e1191_s1469_s1470_r3542_r3549_p1044_tid00814270_00/NTUP_HSG2.00814270._000012.root.1" Lumi="1.0" />
+      <In FileName="/local_data1/stahlman/data/HSG2Ntuples/mc/mc12_8TeV.160155.PowhegPythia8_AU2CT10_ggH125_ZZ4lep.merge.NTUP_HSG2.e1191_s1469_s1470_r3542_r3549_p1044_tid00814270_00/NTUP_HSG2.00814270._000013.root.1" Lumi="1.0" />
+      <In FileName="/local_data1/stahlman/data/HSG2Ntuples/mc/mc12_8TeV.160155.PowhegPythia8_AU2CT10_ggH125_ZZ4lep.merge.NTUP_HSG2.e1191_s1469_s1470_r3542_r3549_p1044_tid00814270_00/NTUP_HSG2.00814270._000014.root.1" Lumi="1.0" />
+      <In FileName="/local_data1/stahlman/data/HSG2Ntuples/mc/mc12_8TeV.160155.PowhegPythia8_AU2CT10_ggH125_ZZ4lep.merge.NTUP_HSG2.e1191_s1469_s1470_r3542_r3549_p1044_tid00814270_00/NTUP_HSG2.00814270._000015.root.1" Lumi="1.0" />
+
+<!--
+      <In FileName="/local_data1/stahlman/data/HSG2Ntuples/mc/mc12_8TeV.160305.Pythia8_AU2CTEQ6L1_ZH125_ZZ4lep.merge.NTUP_HSG2.e1217_s1469_s1470_r3542_r3549_p1044_tid00866100_00/NTUP_HSG2.00866100._000001.root.1" Lumi="1.0" />
+      <In FileName="/local_data1/stahlman/data/HSG2Ntuples/mc/mc12_8TeV.160305.Pythia8_AU2CTEQ6L1_ZH125_ZZ4lep.merge.NTUP_HSG2.e1217_s1469_s1470_r3542_r3549_p1044_tid00866100_00/NTUP_HSG2.00866100._000002.root.1" Lumi="1.0" />
+      <In FileName="/local_data1/stahlman/data/HSG2Ntuples/mc/mc12_8TeV.160305.Pythia8_AU2CTEQ6L1_ZH125_ZZ4lep.merge.NTUP_HSG2.e1217_s1469_s1470_r3542_r3549_p1044_tid00866100_00/NTUP_HSG2.00866100._000003.root.1" Lumi="1.0" />
+      <In FileName="/local_data1/stahlman/data/HSG2Ntuples/mc/mc12_8TeV.160305.Pythia8_AU2CTEQ6L1_ZH125_ZZ4lep.merge.NTUP_HSG2.e1217_s1469_s1470_r3542_r3549_p1044_tid00866100_00/NTUP_HSG2.00866100._000004.root.1" Lumi="1.0" />
+      <In FileName="/local_data1/stahlman/data/HSG2Ntuples/mc/mc12_8TeV.160305.Pythia8_AU2CTEQ6L1_ZH125_ZZ4lep.merge.NTUP_HSG2.e1217_s1469_s1470_r3542_r3549_p1044_tid00866100_00/NTUP_HSG2.00866100._000005.root.1" Lumi="1.0" />
+-->      
+      <InputTree Name="physics" />
+      <OutputTree Name="output" />
+    </InputData>
+    
+    <UserConfig>
+    
+      <!-- Cycle Configuration -->     
+      <Item Name="SFrame_dir" Value="/local_data1/stahlman/Higgs4lDev.trunk/SFrame"/>
+
+      <Item Name="TreeString" Value="physics"/>
+
+      
+      <!-- Tool Configuration -->
+
+      <!--&tools;-->
+
+    </UserConfig>
+    
+  </Cycle>
+
+</JobConfiguration>

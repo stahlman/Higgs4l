@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE JobConfiguration PUBLIC "" "JobConfig.dtd"[
+    <!ENTITY libs_config SYSTEM "/home/sheim/SFrame/Higgs4lDev/SFrame/ZZSelection/config/common_libs.xml"> 
+    <!ENTITY data SYSTEM "input_batch.xml"> 
+]>
+
+<!--OutputLevel: Possibilities: VERBOSE, DEBUG, INFO, WARNING, ERROR, FATAL, ALWAYS -->
+<JobConfiguration JobName="ZZCutFlowJob" OutputLevel="INFO">
+
+  &libs_config;
+
+  <Cycle Name="ZZCutFlow" TargetLumi="1." RunMode="LOCAL" ProofServer="lite"
+         ProofWorkDir="" OutputDirectory="./" ProofNodes="2" PostFix="" >
+
+    <InputData Type="data" Version="batch" Lumi="0." NEventsMax="-1" NEventsSkip="0" Cacheable="False" >
+      &data;
+      <!-- &trees_ff_config; -->
+    <InputTree Name="physics" />
+    <OutputTree Name="output" />
+    </InputData>
+
+    <UserConfig>
+      <!-- &options_ZZCutFlow_batch_config; -->
+  <Item Name="SFrame_dir" Value="/home/sheim/SFrame/Higgs4lDev/SFrame/"/>
+   <Item Name="RecoTreeString" Value="physics"/>
+      <Item Name="TrigTreeString" Value=""/>
+
+      <Item Name="DoGRL" Value="False"/>
+      <Item Name="DoTrigger" Value="True"/>
+      <Item Name="DoVertex" Value="True"/>
+      <Item Name="DoLarError" Value="True"/>
+
+      <!-- <Item Name="ProdType" Value="incl"/> -->
+
+      <Item Name="DoPileupSF" Value="True"/>
+
+      <!-- Tool Configuration -->
+      <Item Name="QuadSelector_DoFourMuon" Value="True" />
+      <Item Name="QuadSelector_DoFourElectron" Value="True" />
+      <Item Name="QuadSelector_DoTwoMuonTwoElectron" Value="True" />
+      <Item Name="QuadSelector_DoTwoElectronTwoMuon" Value="True" />
+
+      <Item Name="TriggerSelector_RecoTreeString" Value="physics"/>
+      <Item Name="MuonSelector_DoSmear" Value="True"/>
+      <Item Name="ElectronSelector_DoSmear" Value="True"/>
+      <Item Name="ElectronSelector_DoCalibration" Value="True"/>
+
+      <Item Name="ElectronSelector_DoElectronIDCut" Value="True"/>
+      <Item Name="ElectronSelector_DoLikelihood" Value="False"/>
+      <Item Name="ElectronSelector_DoML" Value="False"/>
+      <Item Name="ElectronSelector_DoBlayer" Value="False"/>
+
+      <Item Name="QuadSelector_DoSecondPairDzero" Value="False"/>
+      <Item Name="QuadSelector_DoSecondPairIso" Value="False"/>
+      <Item Name="QuadSelector_DoFirstPairPassML" Value="True"/>
+      <Item Name="QuadSelector_DoSecondPairPassML" Value="True"/>
+      <Item Name="QuadSelector_SecondPairML_OP" Value="Relaxed"/>
+
+      <Item Name="ElectronSelector_PTCutLikelihood" Value="False"/>
+      <Item Name="ElectronSelector_VetoCrack" Value="False"/>
+      <Item Name="ElectronSelector_DoTruthMatchEleZ" Value="False"/>
+
+    </UserConfig>
+
+  </Cycle>
+
+</JobConfiguration>

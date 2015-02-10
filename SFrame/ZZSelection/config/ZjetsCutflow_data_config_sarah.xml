@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE JobConfiguration PUBLIC "" "JobConfig.dtd"[
+    <!--<!ENTITY tools SYSTEM "common_tools.xml">-->
+    <!ENTITY libs SYSTEM "common_libs.xml">
+]>
+
+<JobConfiguration JobName="ZjetsCutflowJob" OutputLevel="ERROR">
+	
+  &libs;
+  	
+  <!-- List of cycles to be executed.                                       -->
+  <Cycle Name="ZjetsCutFlow" OutputDirectory="/local_data1/sheim/output/HSG2_output//" PostFix="" TargetLumi="1.0" >
+      
+     <InputData Lumi="0.0" NEventsMax="-1" Type="data" Version="Zjets">
+    
+  <!-- <In FileName="/local_data1/sheim/HSG2/files/data12_8TeV.00201113.physics_Egamma.merge.NTUP_HSG2.f437_m1126_p1041_p1044_p1045_tid00813957_00/NTUP_HSG2.00813957._000001.root.1" Lumi="1.0" /> -->
+
+       <In FileName="/local_data1/sheim/HSG2/files/mc12_8TeV.107662.AlpgenJimmy_AUET2CTEQ6L1_ZmumuNp2.merge.NTUP_HSG2.e1218_s1469_s1470_r3542_r3549_p1044_tid00842747_00/NTUP_HSG2.00842747._000001.root.1" Lumi="1.0" />
+
+      <InputTree Name="physics" />
+      <OutputTree Name="output" />
+    </InputData>
+    
+    <UserConfig>
+    
+      <!-- Cycle Configuration -->     
+      <Item Name="RecoTreeString" Value="physics"/>
+      <Item Name="TrigTreeString" Value=""/>
+
+      <Item Name="DoGRL" Value="False"/>
+      <Item Name="DoTrigger" Value="True"/>
+      <Item Name="DoVertex" Value="True"/>
+      <Item Name="DoLarError" Value="True"/>
+
+      <Item Name="DoVH" Value="False"/>
+
+      <Item Name="DoPileupSF" Value="True"/>
+      
+      <!-- Tool Configuration -->
+      <Item Name="QuadSelectorZjets_DoFourMuon" Value="True" />
+      <Item Name="QuadSelectorZjets_DoFourElectron" Value="True" />
+      <Item Name="QuadSelectorZjets_DoTwoMuonTwoElectron" Value="True" />
+      <Item Name="QuadSelectorZjets_DoTwoElectronTwoMuon" Value="False" />
+
+      <Item Name="TriggerSelector_RecoTreeString" Value="physics"/>
+      
+      <Item Name="MuonSelector_DoSmear" Value="True"/>
+      <Item Name="ElectronSelector_DoSmear" Value="True"/>
+      <Item Name="ElectronSelector_DoCalibration" Value="True"/>
+     
+      <Item Name="ElectronSelector_DoLikelihood" Value="False"/>
+
+      <Item Name="ElectronSelector_LikelihoodOP" Value="Multilepton_FixedSignalEfficiency"/> 
+      <!-- <Item Name="ElectronSelector_LikelihoodOP" Value="Multilepton_FixedBkgRejection"/> -->
+      <Item Name="ElectronSelector_PTCutLikelihood" Value="False"/>
+      <Item Name="ElectronSelector_VetoCrack" Value="False"/>
+      <Item Name="ElectronSelector_DoTruthMatchEleZ" Value="False"/>
+
+      <!--&tools;-->
+
+    </UserConfig>
+    
+  </Cycle>
+
+</JobConfiguration>

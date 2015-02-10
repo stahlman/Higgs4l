@@ -1,0 +1,58 @@
+  <!-- List of libraries to be loaded for the analysis.             -->
+  <Library Name="libRooFit" />  
+  <Library Name="libGenVector" />
+  <Library Name="libGraf" />
+  <Library Name="libCintex" />
+<!--   <Library Name="libSFrameCore"/> -->
+  <Library Name="libSFrameCintex" />
+  <Library Name="libSFramePlugIns" />  
+<!--   <Library Name="libSFrameUser"/> -->
+  <Library Name="libPATCore"/>
+  <Library Name="libGoodRunsLists" />
+  <Library Name="libTMVA"/> 
+  <Library Name="libCategoriesMVA"/> 
+  <Library Name="libPileupReweighting" />  
+  <Library Name="libApplyJetCalibration"/> 
+  <Library Name="libJetUncertainties"/>
+  <Library Name="libApplyJetResolutionSmearing"/>
+  <Library Name="libJetResolution"/>
+  <Library Name="libJVFUncertaintyTool"/> 
+  <Library Name="libD3PDObjects" />
+  <Library Name="libAtlasSFrameUtils" />
+  <Library Name="libCLHEP"/>
+  <Library Name="libZMassConstraint"/> 
+  <Library Name="libElectronPhotonSelectorTools"/>
+  <Library Name="libCommonTools" /> 
+  <Library Name="libggFReweighting"/>
+  <Library Name="libegammaAnalysisUtils"/> 
+  <Library Name="libTrigMuonEfficiency"/>
+  <Library Name="libMuonMomentumCorrections"/>
+  <Library Name="libMuonEfficiencyCorrections"/>
+  <Library Name="libHiggsZZ4lUtils"/>
+  <Library Name="libTileTripReader"/>
+  <Library Name="libElectronEfficiencyCorrection"/>
+  <Library Name="libegammaEvent"/> 
+<!--   <Library Name="libCalibrationHitOffline"/> -->
+  <Library Name="libegammaLayerRecalibTool"/>
+  <Library Name="libegammaMVACalib"/>
+  <Library Name="libegParticleConditions"/>
+  <Library Name="libElectronPhotonFourMomentumCorrection"/>
+<!--   <Library Name="libJHUReweighting"/> -->
+  <Library Name="libegammaFourMomentumError" />
+  <Library Name="libBCHCleaningTool" />
+  <Library Name="libZZSelection"/>
+  
+  <!-- Packages that have to be uploaded and enabled on the PROOF cluster. -->
+  <!-- The standard SFrame libraries all create such a PAR package under   -->
+  <!-- SFRAME_LIB_DIR. For each custom library that is loaded in the       -->
+  <!-- configuration, a package also has to be defined...                  -->
+  <Package Name="SFrameCore.par" />
+  <Package Name="SFrameCintex.par" />
+  <Package Name="SFramePlugIns.par" />
+<!--   <Package Name="SFrameUser.par"/> -->
+  <Package Name="GoodRunsLists.par" />
+  <Package Name="D3PDObjects.par" />
+  <Package Name="AtlasSFrameUtils.par" />
+  <Package Name="CommonTools.par" />
+  <Package Name="RootCore.par" />
+  <Package Name="ZZSelection.par" />

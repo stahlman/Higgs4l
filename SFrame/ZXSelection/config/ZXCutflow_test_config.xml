@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE JobConfiguration PUBLIC "" "JobConfig.dtd"[
+    <!--<!ENTITY tools SYSTEM "common_tools.xml">-->
+    <!ENTITY libs SYSTEM "common_libs.xml">
+    <!ENTITY input SYSTEM "input_PeriodD2012.xml">
+]>
+
+<JobConfiguration JobName="ZXCutflowJob" OutputLevel="INFO">
+	
+  &libs;
+  	
+  <!-- List of cycles to be executed.                                       -->
+  <Cycle Name="ZXCutflow" OutputDirectory="/local_data1/stahlman/output/HSG2_output/" PostFix="" TargetLumi="1.0" >
+    
+    <InputData Lumi="0.0" NEventsMax="-1" Type="data" Version="test">
+
+      <In FileName="/local_data1/stahlman/data/HSG2Ntuples/data/user.stahlman.data12_8TeV.periodD.physics_Muons.PhysCont.NTUP_HSG2.grp13_v01_p1044.2.121102132826/user.stahlman.004495._00001.skim_2l.root" Lumi="1.0" />
+      <In FileName="/local_data1/stahlman/data/HSG2Ntuples/data/user.stahlman.data12_8TeV.periodD.physics_Muons.PhysCont.NTUP_HSG2.grp13_v01_p1044.2.121102132826/user.stahlman.004495._00002.skim_2l.root" Lumi="1.0" />
+      <In FileName="/local_data1/stahlman/data/HSG2Ntuples/data/user.stahlman.data12_8TeV.periodD.physics_Muons.PhysCont.NTUP_HSG2.grp13_v01_p1044.2.121102132826/user.stahlman.004495._00003.skim_2l.root" Lumi="1.0" />
+      <In FileName="/local_data1/stahlman/data/HSG2Ntuples/data/user.stahlman.data12_8TeV.periodD.physics_Muons.PhysCont.NTUP_HSG2.grp13_v01_p1044.2.121102132826/user.stahlman.004495._00004.skim_2l.root" Lumi="1.0" />
+      <In FileName="/local_data1/stahlman/data/HSG2Ntuples/data/user.stahlman.data12_8TeV.periodD.physics_Muons.PhysCont.NTUP_HSG2.grp13_v01_p1044.2.121102132826/user.stahlman.004495._00005.skim_2l.root" Lumi="1.0" />
+
+       <!--
+	      &input;
+       -->
+       
+      <InputTree Name="physics" />
+      <OutputTree Name="output" />
+    </InputData>
+    
+    <UserConfig>
+    
+      <!-- Cycle Configuration -->     
+      <Item Name="RecoTreeString" Value="physics"/>
+      
+      <!-- Tool Configuration -->
+      <Item Name="MuonSelector_DoTrackIsolation" Value="True"/>
+      <Item Name="MuonSelector_DoCaloIsolation" Value="True"/>
+      <Item Name="MuonSelector_DoD0" Value="True"/>
+
+      <Item Name="ElectronSelector_DoML" Value="False"/>
+      <Item Name="ElectronSelector_DoML_HCP" Value="False"/>
+      <Item Name="ElectronSelector_DoLikelihood" Value="True"/>
+      <Item Name="ElectronSelector_DoBlayer" Value="True"/>
+
+      <Item Name="ElectronSelector_DoTrackIsolation" Value="True"/>
+      <Item Name="ElectronSelector_DoCaloIsolation" Value="True"/>
+      <Item Name="ElectronSelector_DoD0" Value="True"/>
+
+      <Item Name="XSelector_DoElectronID" Value="True"/>
+      <Item Name="XSelector_DoML" Value="True"/>
+      <Item Name="XSelector_DoML_HCP" Value="True"/>
+      <Item Name="XSelector_DoLikelihoodMedium" Value="True"/>
+      <Item Name="XSelector_DoLikelihoodLoose" Value="True"/>
+      
+      <Item Name="XSelector_DoBlayer" Value="False"/>
+
+      <Item Name="XSelector_DoTrackIsolation" Value="False"/>
+      <Item Name="XSelector_DoCaloIsolation" Value="False"/>
+      <Item Name="XSelector_DoD0" Value="False"/>
+
+      <!--&tools;-->
+
+    </UserConfig>
+    
+  </Cycle>
+
+</JobConfiguration>

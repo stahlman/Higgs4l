@@ -1,0 +1,5 @@
+Reducible_ee	0.828351264473	
+UpperVar_ee	2.98722651462	
+LowerVar_ee	-9.59845123882	
+NormUp_ee	14.8058246286	
+NormDown_ee	-14.7566340169	

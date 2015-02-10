@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE JobConfiguration PUBLIC "" "JobConfig.dtd"[
+    <!ENTITY libs_config SYSTEM "/home/sheim/SFrame/Higgs4lDev/SFrame/Zgamma/config/common_libs.xml"> 
+    <!ENTITY data SYSTEM "input_batch.xml"> 
+]>
+
+<JobConfiguration JobName="ZgammaTruthJob" OutputLevel="INFO">
+        &libs_config;
+
+<Cycle Name="ZgammaTruth" OutputDirectory="./" PostFix="" TargetLumi="1.0">
+
+    <InputData Type="MC" Version="batch" Lumi="0." NEventsMax="-1" NEventsSkip="0" Cacheable="False" >
+      &data;
+      <!-- &trees_ff_config; -->
+    <InputTree Name="egamma" />
+    <OutputTree Name="output" />
+    </InputData>
+
+
+<UserConfig>
+       <!-- Cycle Configuration -->    
+       <!-- <Item Name="RecoTreeString" Value="egamma"/> 
+       <Item Name="TriggerSelector_RecoTreeString" Value="egamma"/> -->
+       <Item Name="RecoTreeString" Value="egamma"/> 
+       <Item Name="TriggerSelector_RecoTreeString" Value="egamma"/>
+
+       <Item Name="SFrame_dir" Value="/home/sheim/SFrame/Higgs4lDev/SFrame/"/>
+
+      <Item Name="TagSelector_DoTruthMatchEleZ" Value="True"/>
+      <Item Name="ProbeSelector_DoTruthMatchEleZ" Value="True"/>
+      <Item Name="PhotonSelector_DoTruthMatchPhoton" Value="True"/>
+
+      
+</UserConfig>
+</Cycle>
+</JobConfiguration>
+
+
+

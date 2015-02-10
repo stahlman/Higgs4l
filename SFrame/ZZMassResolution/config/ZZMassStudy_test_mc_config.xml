@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE JobConfiguration PUBLIC "" "JobConfig.dtd"[
+    <!--<!ENTITY tools SYSTEM "common_tools.xml">-->
+    <!ENTITY libs SYSTEM "common_libs.xml">
+]>
+
+<JobConfiguration JobName="ZZMassStudyJob" OutputLevel="INFO">
+	
+  &libs;
+  	
+  <!-- List of cycles to be executed.                                       -->
+  <Cycle Name="ZZMassStudy" OutputDirectory="/local_data1/stahlman/output/HSG2_output/" PostFix="" TargetLumi="1.0" >
+    
+    <InputData Lumi="0.0" NEventsMax="-1" Type="MC" Version="Reco">
+      <In FileName="/local_data1/stahlman/output/HSG2_output/ZZCutFlow.MC.Reco.root" Lumi="1.0" />
+      
+      <InputTree Name="output" />
+      <OutputTree Name="output" />
+    </InputData>
+    
+    <UserConfig>
+    
+      <!-- Cycle Configuration -->     
+      <Item Name="RecoTreeString" Value="output"/>
+      <Item Name="TrigTreeString" Value=""/>
+
+      
+      <!-- Tool Configuration -->
+
+      <!--&tools;-->
+
+    </UserConfig>
+    
+  </Cycle>
+
+</JobConfiguration>

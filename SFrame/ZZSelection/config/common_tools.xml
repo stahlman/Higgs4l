@@ -1,0 +1,36 @@
+      <!-- <Item Name="GoodRunsList_grl" Value="/local_data0/stahlman/GRL/data11_7TeV.periodAllYear_DetStatus-v36-pro09-03_CoolRunQuery-00-04-08_WZjets_allchannels.xml"/> -->
+      <Item Name="GoodRunsList_grl" Value="/local_data0/stahlman/GRL/data11_7TeV.periodAllYear_DetStatus-v36-pro10_CoolRunQuery-00-04-08_WZjets_allchannels.xml"/>
+
+      <Item Name="PileupReweighting_do_pileup_reweighting" Value="True" />
+      <Item Name="PileupReweighting_data_file" Value="/local_data0/stahlman/lumi/ilumicalc_histograms_None_178044-191933.root " />
+      <Item Name="PileupReweighting_data_hist" Value="LumiMetaData" />
+      <Item Name="PileupReweighting_mc_file" Value="/local_data0/stahlman/lumi/mc11a_defaults.root " />
+      <Item Name="PileupReweighting_mc_hist" Value="MCPileupReweighting" />
+      <Item Name="PileupReweighting_var" Value="averageIntPerXing" />
+      <Item Name="PileupReweighting_generate_mc_hist" Value="False" />
+      <Item Name="PileupReweighting_default_channel" Value="0" />
+      <Item Name="PileupReweighting_scale_mu" Value="1.0" />
+
+      <Item Name="ScaledMuPileupReweighting1_do_pileup_reweighting" Value="True" />
+      <Item Name="ScaledMuPileupReweighting1_data_file" Value="/local_data0/stahlman/lumi/ilumicalc_histograms_None_178044-191933.root " />
+      <Item Name="ScaledMuPileupReweighting1_data_hist" Value="LumiMetaData" />
+      <Item Name="ScaledMuPileupReweighting1_mc_file" Value="/local_data0/stahlman/lumi/mc11a_defaults.root " />
+      <Item Name="ScaledMuPileupReweighting1_mc_hist" Value="MCPileupReweighting" />
+      <Item Name="ScaledMuPileupReweighting1_var" Value="averageIntPerXing" />
+      <Item Name="ScaledMuPileupReweighting1_generate_mc_hist" Value="False" />
+      <Item Name="ScaledMuPileupReweighting1_default_channel" Value="0" />
+      <Item Name="ScaledMuPileupReweighting1_scale_mu" Value="0.9" />
+
+
+      <Item Name="ScaledMuPileupReweighting2_do_pileup_reweighting" Value="True" />
+      <Item Name="ScaledMuPileupReweighting2_data_file" Value="/local_data0/stahlman/lumi/ilumicalc_histograms_None_178044-191933.root " />
+      <Item Name="ScaledMuPileupReweighting2_data_hist" Value="LumiMetaData" />
+      <Item Name="ScaledMuPileupReweighting2_mc_file" Value="/local_data0/stahlman/lumi/mc11a_defaults.root " />
+      <Item Name="ScaledMuPileupReweighting2_mc_hist" Value="MCPileupReweighting" />
+      <Item Name="ScaledMuPileupReweighting2_var" Value="averageIntPerXing" />
+      <Item Name="ScaledMuPileupReweighting2_generate_mc_hist" Value="False" />
+      <Item Name="ScaledMuPileupReweighting2_default_channel" Value="0" />
+      <Item Name="ScaledMuPileupReweighting2_scale_mu" Value="0.83" />
+
+      <Item Name="ZPtReweighting_do_zpt_reweighting" Value="False" />
+      <Item Name="ZPtReweighting_config_file" Value="../../config/other/WeightsBosonPt_PythiaMC11_to_Pythia.root" />

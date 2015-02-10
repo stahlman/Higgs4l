@@ -1,0 +1,46 @@
+  <!-- List of libraries to be loaded for the analysis.             -->
+  <Library Name="libRooFit" />
+  <Library Name="libGenVector" />
+  <Library Name="libGraf" />
+  <Library Name="libCintex" />
+  <Library Name="libSFrameCintex" />
+  <Library Name="libSFramePlugIns" />  
+  <Library Name="libPATCore"/>
+  <Library Name="libGoodRunsLists" />
+  <Library Name="libPileupReweighting" />  
+  <Library Name="libApplyJetCalibration"/> 
+  <Library Name="libD3PDObjects" />
+  <Library Name="libAtlasSFrameUtils" />
+  <Library Name="libegammaFourMomentumError" />
+  <Library Name="libCLHEP"/>
+  <Library Name="libZMassConstraint"/> 
+  <Library Name="libElectronPhotonSelectorTools"/>
+  <Library Name="libCommonTools" /> 
+  <Library Name="libggFReweighting"/>
+  <Library Name="libegammaAnalysisUtils"/> 
+  <Library Name="libTrigMuonEfficiency"/>
+  <Library Name="libMuonMomentumCorrections"/>
+  <Library Name="libMuonEfficiencyCorrections"/>
+  <Library Name="libHiggsZZ4lUtils"/>
+  <Library Name="libTileTripReader"/>
+  <Library Name="libBCHCleaningTool"/>
+  <Library Name="libElectronEfficiencyCorrection"/>
+  <Library Name="libegammaEvent"/> 
+  <Library Name="libHiggsZZ4lUtils"/>  
+
+  <Library Name="libBCHCleaningTool" />
+  <Library Name="libZZTruthStudies" />
+
+  <!-- Packages that have to be uploaded and enabled on the PROOF cluster. -->
+  <!-- The standard SFrame libraries all create such a PAR package under   -->
+  <!-- SFRAME_LIB_DIR. For each custom library that is loaded in the       -->
+  <!-- configuration, a package also has to be defined...                  -->
+  <Package Name="SFrameCore.par" />
+  <Package Name="SFrameCintex.par" />
+  <Package Name="SFramePlugIns.par" />
+  <Package Name="GoodRunsLists.par" />
+  <Package Name="D3PDObjects.par" />
+  <Package Name="AtlasSFrameUtils.par" />
+  <Package Name="CommonTools.par" />
+  <Package Name="RootCore.par" />
+  <Package Name="ZZTruthStudies.par" />

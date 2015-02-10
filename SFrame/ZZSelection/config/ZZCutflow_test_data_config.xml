@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE JobConfiguration PUBLIC "" "JobConfig.dtd"[
+    <!--<!ENTITY tools SYSTEM "common_tools.xml">-->
+    <!ENTITY libs SYSTEM "common_libs.xml">
+]>
+
+<JobConfiguration JobName="ZZCutflowJob" OutputLevel="INFO">
+	
+  &libs;
+  	
+  <!-- List of cycles to be executed.                                       -->
+  <Cycle Name="ZZCutFlow" OutputDirectory="/local_data1/stahlman/output/HSG2_output/" PostFix="" TargetLumi="1.0" >
+    
+    <InputData Lumi="0.0" NEventsMax="-1" Type="data" Version="Reco">
+<!--      
+      <In FileName="/local_data1/sheim/HSG2/files/data12_8TeV.00201113.physics_Egamma.merge.NTUP_HSG2.f437_m1126_p1041_p1044_p1045_tid00813957_00/NTUP_HSG2.00813957._000001.root.1" Lumi="1.0" />
+      <In FileName="/local_data1/sheim/HSG2/files/data12_8TeV.00201113.physics_Egamma.merge.NTUP_HSG2.f437_m1126_p1041_p1044_p1045_tid00813957_00/NTUP_HSG2.00813957._000002.root.1" Lumi="1.0" />
+      <In FileName="/local_data1/sheim/HSG2/files/data12_8TeV.00201113.physics_Egamma.merge.NTUP_HSG2.f437_m1126_p1041_p1044_p1045_tid00813957_00/NTUP_HSG2.00813957._000003.root.1" Lumi="1.0" />
+      <In FileName="/local_data1/sheim/HSG2/files/data12_8TeV.00201113.physics_Egamma.merge.NTUP_HSG2.f437_m1126_p1041_p1044_p1045_tid00813957_00/NTUP_HSG2.00813957._000004.root.1" Lumi="1.0" />
+      <In FileName="/local_data1/sheim/HSG2/files/data12_8TeV.00201113.physics_Egamma.merge.NTUP_HSG2.f437_m1126_p1041_p1044_p1045_tid00813957_00/NTUP_HSG2.00813957._000005.root.1" Lumi="1.0" />
+      <In FileName="/local_data1/sheim/HSG2/files/data12_8TeV.00201113.physics_Egamma.merge.NTUP_HSG2.f437_m1126_p1041_p1044_p1045_tid00813957_00/NTUP_HSG2.00813957._000006.root.1" Lumi="1.0" />
+      <In FileName="/local_data1/sheim/HSG2/files/data12_8TeV.00201113.physics_Egamma.merge.NTUP_HSG2.f437_m1126_p1041_p1044_p1045_tid00813957_00/NTUP_HSG2.00813957._000007.root.1" Lumi="1.0" />
+      <In FileName="/local_data1/sheim/HSG2/files/data12_8TeV.00201113.physics_Egamma.merge.NTUP_HSG2.f437_m1126_p1041_p1044_p1045_tid00813957_00/NTUP_HSG2.00813957._000008.root.1" Lumi="1.0" />
+      <In FileName="/local_data1/sheim/HSG2/files/data12_8TeV.00201113.physics_Egamma.merge.NTUP_HSG2.f437_m1126_p1041_p1044_p1045_tid00813957_00/NTUP_HSG2.00813957._000009.root.1" Lumi="1.0" />
+      <In FileName="/local_data1/sheim/HSG2/files/data12_8TeV.00201113.physics_Egamma.merge.NTUP_HSG2.f437_m1126_p1041_p1044_p1045_tid00813957_00/NTUP_HSG2.00813957._000010.root.1" Lumi="1.0" />
+      <In FileName="/local_data1/sheim/HSG2/files/data12_8TeV.00201113.physics_Egamma.merge.NTUP_HSG2.f437_m1126_p1041_p1044_p1045_tid00813957_00/NTUP_HSG2.00813957._000011.root.1" Lumi="1.0" />
+      <In FileName="/local_data1/sheim/HSG2/files/data12_8TeV.00201113.physics_Egamma.merge.NTUP_HSG2.f437_m1126_p1041_p1044_p1045_tid00813957_00/NTUP_HSG2.00813957._000012.root.1" Lumi="1.0" />
+      <In FileName="/local_data1/sheim/HSG2/files/data12_8TeV.00201113.physics_Egamma.merge.NTUP_HSG2.f437_m1126_p1041_p1044_p1045_tid00813957_00/NTUP_HSG2.00813957._000013.root.1" Lumi="1.0" />
+      <In FileName="/local_data1/sheim/HSG2/files/data12_8TeV.00201113.physics_Egamma.merge.NTUP_HSG2.f437_m1126_p1041_p1044_p1045_tid00813957_00/NTUP_HSG2.00813957._000014.root.1" Lumi="1.0" />
+      <In FileName="/local_data1/sheim/HSG2/files/data12_8TeV.00201113.physics_Egamma.merge.NTUP_HSG2.f437_m1126_p1041_p1044_p1045_tid00813957_00/NTUP_HSG2.00813957._000015.root.1" Lumi="1.0" />
+      <In FileName="/local_data1/sheim/HSG2/files/data12_8TeV.00201113.physics_Egamma.merge.NTUP_HSG2.f437_m1126_p1041_p1044_p1045_tid00813957_00/NTUP_HSG2.00813957._000016.root.1" Lumi="1.0" />
+      <In FileName="/local_data1/sheim/HSG2/files/data12_8TeV.00201113.physics_Egamma.merge.NTUP_HSG2.f437_m1126_p1041_p1044_p1045_tid00813957_00/NTUP_HSG2.00813957._000017.root.1" Lumi="1.0" />
+-->      
+
+      <In FileName="/local_data1/sheim/HSG2/files/data12_8TeV.00204153.physics_Muons.merge.NTUP_HSG2.f447_m1153_p1041_p1044_p1045_tid00849313_00/NTUP_HSG2.00849313._000001.root.1" Lumi="1.0" />
+      <In FileName="/local_data1/sheim/HSG2/files/data12_8TeV.00204153.physics_Muons.merge.NTUP_HSG2.f447_m1153_p1041_p1044_p1045_tid00849313_00/NTUP_HSG2.00849313._000002.root.1" Lumi="1.0" />
+      <In FileName="/local_data1/sheim/HSG2/files/data12_8TeV.00204153.physics_Muons.merge.NTUP_HSG2.f447_m1153_p1041_p1044_p1045_tid00849313_00/NTUP_HSG2.00849313._000003.root.1" Lumi="1.0" />
+      <In FileName="/local_data1/sheim/HSG2/files/data12_8TeV.00204153.physics_Muons.merge.NTUP_HSG2.f447_m1153_p1041_p1044_p1045_tid00849313_00/NTUP_HSG2.00849313._000004.root.1" Lumi="1.0" />
+      <In FileName="/local_data1/sheim/HSG2/files/data12_8TeV.00204153.physics_Muons.merge.NTUP_HSG2.f447_m1153_p1041_p1044_p1045_tid00849313_00/NTUP_HSG2.00849313._000005.root.1" Lumi="1.0" />
+      <In FileName="/local_data1/sheim/HSG2/files/data12_8TeV.00204153.physics_Muons.merge.NTUP_HSG2.f447_m1153_p1041_p1044_p1045_tid00849313_00/NTUP_HSG2.00849313._000006.root.1" Lumi="1.0" />
+      <In FileName="/local_data1/sheim/HSG2/files/data12_8TeV.00204153.physics_Muons.merge.NTUP_HSG2.f447_m1153_p1041_p1044_p1045_tid00849313_00/NTUP_HSG2.00849313._000007.root.1" Lumi="1.0" />
+      <In FileName="/local_data1/sheim/HSG2/files/data12_8TeV.00204153.physics_Muons.merge.NTUP_HSG2.f447_m1153_p1041_p1044_p1045_tid00849313_00/NTUP_HSG2.00849313._000008.root.1" Lumi="1.0" />
+      <In FileName="/local_data1/sheim/HSG2/files/data12_8TeV.00204153.physics_Muons.merge.NTUP_HSG2.f447_m1153_p1041_p1044_p1045_tid00849313_00/NTUP_HSG2.00849313._000009.root.1" Lumi="1.0" />
+      <In FileName="/local_data1/sheim/HSG2/files/data12_8TeV.00204153.physics_Muons.merge.NTUP_HSG2.f447_m1153_p1041_p1044_p1045_tid00849313_00/NTUP_HSG2.00849313._000010.root.1" Lumi="1.0" />
+      <In FileName="/local_data1/sheim/HSG2/files/data12_8TeV.00204153.physics_Muons.merge.NTUP_HSG2.f447_m1153_p1041_p1044_p1045_tid00849313_00/NTUP_HSG2.00849313._000011.root.1" Lumi="1.0" />
+
+      <InputTree Name="physics" />
+      <OutputTree Name="output" />
+    </InputData>
+    
+    <UserConfig>
+    
+      <!-- Cycle Configuration -->     
+      <Item Name="RecoTreeString" Value="physics"/>
+      <Item Name="TrigTreeString" Value=""/>
+      <Item Name="DoSmear" Value="False"/>
+      <Item Name="DoGRL" Value="False"/>
+      <Item Name="DoTrigger" Value="True"/>
+      <Item Name="DoVertex" Value="True"/>
+      <Item Name="DoZ" Value="True"/>
+      <Item Name="DoLarError" Value="True"/>
+      
+      <!-- Tool Configuration -->
+      <Item Name="QuadSelector_DoFourMuon" Value="True" />
+      <Item Name="QuadSelector_DoFourElectron" Value="True" />
+      <Item Name="QuadSelector_DoTwoMuonTwoElectron" Value="True" />
+      <Item Name="QuadSelector_DoTwoElectronTwoMuon" Value="True" />
+
+      <Item Name="TriggerSelector_RecoTreeString" Value="physics"/>
+      
+      <Item Name="MuonSelector_DoSmear" Value="False"/>
+
+      <Item Name="ElectronSelector_DoSmear" Value="False"/>
+      <Item Name="ElectronSelector_DoCalibration" Value="True"/>
+
+      <!--&tools;-->
+
+    </UserConfig>
+    
+  </Cycle>
+
+</JobConfiguration>

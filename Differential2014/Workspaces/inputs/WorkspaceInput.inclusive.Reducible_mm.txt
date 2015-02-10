@@ -1,0 +1,5 @@
+Reducible_mm	1.42974340479	
+UpperVar_mm	-1.07304507692	
+LowerVar_mm	0.00615429156889	
+NormUp_mm	11.6439617526	
+NormDown_mm	-11.6407870271	

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE JobConfiguration PUBLIC "" "JobConfig.dtd"[
+    <!ENTITY grid SYSTEM "input_grid.xml">
+    <!ENTITY tools SYSTEM "common_tools.xml">
+    <!ENTITY libs SYSTEM "common_libs.xml">
+]>
+
+<JobConfiguration JobName="ZZ_SelectionJob" OutputLevel="INFO">
+	
+  &libs;
+	
+  <!-- List of cycles to be executed.                                       -->
+  <Cycle Name="ZZ_Selection" OutputDirectory="./" PostFix="" TargetLumi="1.0" >
+    
+    <InputData Lumi="0.0" NEventsMax="-1" Type="MC" Version="Reco">
+      
+      &grid;
+                  
+      <InputTree Name="physics" />
+      <OutputTree Name="output" />
+    </InputData>
+    
+    <UserConfig>
+      <Item Name="RecoTreeString" Value="physics"/>
+      <Item Name="TrigTreeString" Value=""/>
+      <Item Name="ISMC" Value="True"/>
+      <Item Name="DoSmear" Value="False"/>
+      <Item Name="DoGRL" Value="False"/>
+      <Item Name="DoTrigger" Value="False"/>
+      <Item Name="DoVertex" Value="True"/>
+      <Item Name="DoZ" Value="True"/>
+      
+      <Item Name="GoodRunsList_grl" Value="../../config/GRL/data11_7TeV.periodAllYear_DetStatus-v36-pro10_CoolRunQuery-00-04-08_WZjets_allchannels.xml"/>
+
+      <Item Name="PileupReweighting_do_pileup_reweighting" Value="True" />
+      <Item Name="PileupReweighting_data_file" Value="../../config/lumi/ilumicalc_histograms_None_178044-191933.root" />
+      <Item Name="PileupReweighting_data_hist" Value="LumiMetaData" />
+      <Item Name="PileupReweighting_mc_file" Value="../../config/lumi/mc11a_defaults.root" />
+      <Item Name="PileupReweighting_mc_hist" Value="MCPileupReweighting" />
+      <Item Name="PileupReweighting_var" Value="averageIntPerXing" />
+      <Item Name="PileupReweighting_generate_mc_hist" Value="False" />
+      <Item Name="PileupReweighting_default_channel" Value="0" />
+      <Item Name="PileupReweighting_scale_mu" Value="1.0" />
+
+      <Item Name="ScaledMuPileupReweighting1_do_pileup_reweighting" Value="False" />
+      <Item Name="ScaledMuPileupReweighting1_data_file" Value="../../config/lumi/ilumicalc_histograms_None_178044-191933.root" />
+      <Item Name="ScaledMuPileupReweighting1_data_hist" Value="LumiMetaData" />
+      <Item Name="ScaledMuPileupReweighting1_mc_file" Value="../../config/lumi/mc11a_defaults.root" />
+      <Item Name="ScaledMuPileupReweighting1_mc_hist" Value="MCPileupReweighting" />
+      <Item Name="ScaledMuPileupReweighting1_var" Value="averageIntPerXing" />
+      <Item Name="ScaledMuPileupReweighting1_generate_mc_hist" Value="False" />
+      <Item Name="ScaledMuPileupReweighting1_default_channel" Value="0" />
+      <Item Name="ScaledMuPileupReweighting1_scale_mu" Value="0.9" />
+
+
+      <Item Name="ScaledMuPileupReweighting2_do_pileup_reweighting" Value="False" />
+      <Item Name="ScaledMuPileupReweighting2_data_file" Value="../../config/lumi/ilumicalc_histograms_None_178044-191933.root" />
+      <Item Name="ScaledMuPileupReweighting2_data_hist" Value="LumiMetaData" />
+      <Item Name="ScaledMuPileupReweighting2_mc_file" Value="../../config/lumi/mc11a_defaults.root" />
+      <Item Name="ScaledMuPileupReweighting2_mc_hist" Value="MCPileupReweighting" />
+      <Item Name="ScaledMuPileupReweighting2_var" Value="averageIntPerXing" />
+      <Item Name="ScaledMuPileupReweighting2_generate_mc_hist" Value="False" />
+      <Item Name="ScaledMuPileupReweighting2_default_channel" Value="0" />
+      <Item Name="ScaledMuPileupReweighting2_scale_mu" Value="0.83" />
+      
+<!--      <Item Name="PuDataRootFileName" Value=""/>
+      <Item Name="PuMCRootFileName" Value=""/>
+      <Item Name="PuMCRootHistName" Value=""/>
+
+      <Item Name="output_event_branches_regex" Value="ValueOfUserProperty"/>
+      <Item Name="output_muon_branches_regex" Value="ValueOfUserProperty"/>
+      <Item Name="output_met_branches_regex" Value="ValueOfUserProperty"/>  -->
+
+    </UserConfig>
+    
+  </Cycle>
+
+</JobConfiguration>

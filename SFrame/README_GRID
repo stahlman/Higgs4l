@@ -1,0 +1,98 @@
+##  Dominick Olivito <olivito@cern.ch>
+
+------------------
+Basic SFrame Setup
+------------------
+
+Please see the README file in this directory.
+
+----------
+Grid Setup
+----------
+
+I submit grid jobs from lxplus, and I haven't tried submitting from say, the Penn desktops.
+
+Make sure you have a grid certificate and all that good stuff:
+https://twiki.cern.ch/twiki/bin/view/Atlas/WorkBookStartingGrid
+
+Then make sure you have Panda set up:
+https://twiki.cern.ch/twiki/bin/view/Atlas/DAonPanda
+
+(I've gotten this work using Panda and prun, though it probably would be similar to use Ganga.)
+
+The way prun works is:
+- your working directory is tarred up and sent to a grid site, where the data is
+- a single build job is run to build any source code you send
+- the built libraries are sent to all the worker nodes, where the data is
+- your output dataset contains the outputs from all the worker nodes
+
+---------------------------------
+Getting SFrame Ready for the Grid
+---------------------------------
+
+I have two scripts to steer the build job and the analysis jobs: grid_build.sh and grid_run.sh.
+
+grid_build.sh just sources the SFrame setup script and uses my custom Makefile to build all the packages I need.  Since
+SFrame depends on ROOT, and ROOT is only available by setting up Athena, we pass an option to prun to set up Athena
+before the build and run jobs.
+
+grid_run.sh sources the SFrame setup script, runs sframe_input.py to generate the xml list of input datasets, and runs
+the SFrame analysis job.
+
+!! Panda gives the list of input files on each worker node as a comma separated list, while sframe_input.py expects a
+space separated list.  A simple fix allows the same script to read this list:
+
+  if not len( files ):
+    print "You should define at least one input file!"
+    print ""
+    parser.print_help()
+    return
+
+  ###########################################
+  # add these lines!!!
+  if len(files) == 1 and files[0].count(','):
+    files = files[0].split(',')  
+  print files
+  # end added lines
+  ###########################################
+
+  # Switch ROOT to batch mode:
+  import ROOT
+  ROOT.gROOT.SetBatch()
+
+One tricky thing is picking up the right list of input data files on each node.  Using the modification above,
+sframe_input.py can make an xml file with a list of these.  Then what I do is just include this file in a standard
+SFrame configuration xml file.  For an example, see ElectronPreselCycle/config/grid_config.xml.
+
+The other tricky thing is that if you depend on particular files (like, say, the checkOQ library that depends on
+specific root files), you should make sure you'll be able to find these on the worker node (which doesn't have
+AFS).  Since you don't know the absolute file paths, I'd specify a relative path in any code that refers to them,
+and put them in with your files to be sent.  If you have to send .root files with your job, you need to specifically
+declare these, or they'll be skipped.
+
+-------
+Running
+-------
+
+Here's an example of the prun command that I use to send my jobs:
+
+prun --bexec grid_build.sh --exec "grid_run.sh %IN" --inDS
+group10.perf-egamma.mc09_7TeV.105001.pythia_minbias.merge.AOD.e517_s764_s767_r1250_r1260.Egamma.110510.db10.4.1.NewPilotCERN.D3PD --outDS
+user.olivito.mc09_7TeV.105001.pythia_minbias.merge.AOD.e517_s764_s767_r1250_r1260.Egamma.110510.db10.4.1.NewPilotCERN.D3PD.SFrame.test.3
+--extFile ElectronPreselCycle/config/ObjectQualityMaps_run152166.root,ElectronPreselCycle/config/ObjectQualityMaps_run155118.root
+--athenaTag=15.6.8 --outputs ElectronPreselCycle.MC.test.root 
+
+--bexec is the build job, here my grid_build.sh script
+
+--exec is the analysis job, here my grid_run.sh script, passing the input data file names as an argument
+
+--inDS is the input dataset
+
+--outDS is the output dataset (and must follow the appropriate naming rules)
+
+--extFile is a comma-separated list of all the files you explicitly need to send with your job (for instance, .root files
+that otherwise wouldn't be sent)
+
+--athenaTag is the version of Athena to setup, which is necessary here for ROOT
+
+--outputs is the name of the output file created by the SFrame job, that gets added to your outDS
